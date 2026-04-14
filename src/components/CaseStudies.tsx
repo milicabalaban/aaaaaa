@@ -1,5 +1,6 @@
 "use client";
 
+import Link from "next/link";
 import { motion } from "framer-motion";
 import { siteContent } from "@/data/content";
 
@@ -39,7 +40,7 @@ export default function CaseStudies() {
                 duration: 0.6,
                 delay: 0.08 * i,
               }}
-              className="grid sm:grid-cols-[1fr_2fr] gap-6 sm:gap-12 pt-10 border-t border-border"
+              className="grid sm:grid-cols-[1fr_2fr] gap-6 sm:gap-12 pt-10 border-t border-border group"
             >
               <div>
                 <p className="font-display text-5xl sm:text-6xl text-accent leading-none mb-2">
@@ -53,12 +54,25 @@ export default function CaseStudies() {
                   {item.role}
                 </p>
                 <h3 className="font-display text-2xl sm:text-3xl text-foreground mb-4 leading-snug">
-                  {item.title}
+                  <Link
+                    href={`/work/${item.slug}`}
+                    className="underline underline-offset-4 decoration-transparent group-hover:decoration-accent hover:text-accent transition-colors"
+                  >
+                    {item.title}
+                  </Link>
                 </h3>
                 <p className="text-base text-foreground/80 leading-relaxed mb-5">
                   {item.description}
                 </p>
-                <div className="flex flex-wrap gap-x-4 gap-y-2">
+                <div className="flex items-center gap-6">
+                  <Link
+                    href={`/work/${item.slug}`}
+                    className="text-sm text-foreground underline underline-offset-4 decoration-accent/60 hover:decoration-accent hover:text-accent transition-colors"
+                  >
+                    Read the case study →
+                  </Link>
+                </div>
+                <div className="flex flex-wrap gap-x-4 gap-y-2 mt-5">
                   {item.tags.map((tag) => (
                     <span
                       key={tag}

@@ -24,14 +24,28 @@ export const metadata: Metadata = {
   robots: { index: true, follow: true },
 };
 
+// Runs before React hydrates, so the correct theme is applied before paint.
+const noFlashThemeScript = `(() => {
+  try {
+    var stored = localStorage.getItem('theme');
+    var prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+    var theme = stored === 'dark' || stored === 'light' ? stored : (prefersDark ? 'dark' : 'light');
+    document.documentElement.setAttribute('data-theme', theme);
+  } catch (e) {}
+})();`;
+
 export default function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className="scroll-smooth">
+    <html lang="en" className="scroll-smooth" suppressHydrationWarning>
       <head>
+        <script
+          // Must run before the body paints, hence inline.
+          dangerouslySetInnerHTML={{ __html: noFlashThemeScript }}
+        />
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link
           rel="preconnect"

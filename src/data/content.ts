@@ -112,34 +112,87 @@ export const siteContent = {
     // TODO: replace placeholder client names and add real links / logos
     items: [
       {
+        slug: "saas-linkedin-launch",
         role: "Content strategy · B2B SaaS",
         title: "SaaS startup LinkedIn launch",
+        client: "[Client name]", // TODO
+        year: "2024",
         metric: "300%",
         metricLabel: "increase in followers",
         description:
           "Built and ran a three-month content strategy that grew a B2B SaaS startup's LinkedIn following from 500 to 2,000+ with a 12% engagement rate. We stopped guessing and started writing for one specific buyer.",
         tags: ["Content strategy", "LinkedIn growth"],
-        link: "#", // TODO: link to full case study or client site
+        externalLink: "", // TODO: optional link to client site
+        // Longer write-up shown on /work/[slug]
+        summary:
+          "A B2B SaaS startup with a great product and almost no presence on LinkedIn. Three months in, they had a voice, a rhythm, and a pipeline that actually noticed them.",
+        problem:
+          "The founder was posting inconsistently, trying to sound 'professional,' and getting single-digit engagement. They didn't have a content strategy — they had a content habit, badly.",
+        approach: [
+          "Mapped the actual buyer (one role, one industry, one pain) and wrote everything for that person.",
+          "Built a 3-pillar content system: teach, challenge, prove.",
+          "Rewrote the founder's voice to sound like them — not like a LinkedIn playbook.",
+          "Established a weekly cadence with built-in space for reactive posts.",
+        ],
+        results: [
+          { metric: "2,000+", label: "followers in 90 days" },
+          { metric: "12%", label: "average engagement rate" },
+          { metric: "40+", label: "inbound conversations from content" },
+        ],
       },
       {
+        slug: "brand-awareness-campaign",
         role: "Sponsored series · Enterprise tech",
         title: "Brand awareness campaign",
+        client: "[Client name]", // TODO
+        year: "2024",
         metric: "2M+",
         metricLabel: "total impressions",
         description:
           "Led a multi-post sponsored campaign that generated over 2 million impressions and 15,000+ engagements for an enterprise tech brand. The trick wasn't reach — it was writing posts that sounded like a person, not a press release.",
         tags: ["Sponsored content", "Brand partnership"],
-        link: "#",
+        externalLink: "",
+        summary:
+          "An enterprise tech brand wanted reach. What they needed was resonance — the kind of posts marketers actually stop scrolling for.",
+        problem:
+          "Big budget, big messaging, zero personality. Their previous campaigns read like product announcements and performed like them too.",
+        approach: [
+          "Translated the product story into a founder-style first-person narrative.",
+          "Designed a four-post series, each with a clear angle and a hook written before the visual.",
+          "Paired sponsored posts with organic commentary to extend reach without looking paid.",
+        ],
+        results: [
+          { metric: "2M+", label: "impressions across the series" },
+          { metric: "15K+", label: "engagements" },
+          { metric: "3x", label: "above the brand's prior sponsored benchmark" },
+        ],
       },
       {
+        slug: "newsletter-growth",
         role: "Newsletter · Marketing community",
         title: "Newsletter growth from zero",
+        client: "Marketics",
+        year: "2024",
         metric: "197",
         metricLabel: "subscribers in 3 months",
         description:
           "Launched and grew a weekly marketing newsletter from zero to ~200 subscribers with a well-above-average open rate in the first quarter. Built on the same premise as my LinkedIn: teach, don't sell.",
         tags: ["Newsletter", "Community"],
-        link: "#",
+        externalLink: "",
+        summary:
+          "A weekly newsletter for marketers and founders who want strategy thinking, not tool reviews. Built from scratch, no paid acquisition.",
+        problem:
+          "I wanted a space I owned, where ideas could breathe past a LinkedIn character limit. Starting a newsletter is easy; growing one without selling your soul is the hard part.",
+        approach: [
+          "Every issue answers one real question from my inbox or DMs.",
+          "No tools-roundup filler. One idea, argued well, with a take I'd defend in person.",
+          "Cross-promotion only where the audience genuinely overlaps.",
+        ],
+        results: [
+          { metric: "197", label: "subscribers in the first quarter" },
+          { metric: "55%+", label: "average open rate" },
+          { metric: "0", label: "dollars spent on ads" },
+        ],
       },
     ],
   },

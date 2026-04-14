@@ -3,60 +3,80 @@
 import { motion } from "framer-motion";
 import { siteContent } from "@/data/content";
 
-const { caseStudies } = siteContent;
+const { work } = siteContent;
+
+const fadeInUp = {
+  initial: { opacity: 0, y: 20 },
+  whileInView: { opacity: 1, y: 0 },
+  viewport: { once: true, margin: "-80px" },
+  transition: { duration: 0.6 },
+};
 
 export default function CaseStudies() {
   return (
-    <section className="py-20 sm:py-28 bg-white">
-      <div className="max-w-6xl mx-auto px-4 sm:px-6">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: "-100px" }}
-          transition={{ duration: 0.6 }}
-          className="text-center mb-16"
-        >
-          <h2 className="text-3xl sm:text-4xl font-bold tracking-tight text-foreground mb-3">
-            {caseStudies.heading}
+    <section id="work" className="py-20 sm:py-28 border-t border-border/60">
+      <div className="max-w-5xl mx-auto px-6 sm:px-8">
+        <motion.div {...fadeInUp} className="max-w-2xl mb-14">
+          <p className="text-sm tracking-widest uppercase text-accent mb-4">
+            {work.kicker}
+          </p>
+          <h2 className="font-display text-4xl sm:text-5xl leading-tight text-foreground mb-6">
+            {work.heading}
           </h2>
-          <div className="w-12 h-1 bg-accent rounded-full mx-auto mt-4" />
+          <p className="text-lg text-foreground/75 leading-relaxed">
+            {work.intro}
+          </p>
         </motion.div>
 
-        <div className="grid md:grid-cols-3 gap-6">
-          {caseStudies.items.map((item, i) => (
-            <motion.div
+        <div className="space-y-12">
+          {work.items.map((item, i) => (
+            <motion.article
               key={i}
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: i * 0.1 }}
-              className="bg-gradient-to-br from-accent-light/40 to-white rounded-2xl p-6 sm:p-8 border border-border hover:shadow-lg hover:shadow-accent/5 transition-all duration-300"
+              viewport={{ once: true, margin: "-80px" }}
+              transition={{
+                duration: 0.6,
+                delay: 0.08 * i,
+              }}
+              className="grid sm:grid-cols-[1fr_2fr] gap-6 sm:gap-12 pt-10 border-t border-border"
             >
-              <div className="text-4xl sm:text-5xl font-bold text-accent mb-1">
-                {item.metric}
+              <div>
+                <p className="font-display text-5xl sm:text-6xl text-accent leading-none mb-2">
+                  {item.metric}
+                </p>
+                <p className="text-sm text-muted">{item.metricLabel}</p>
               </div>
-              <div className="text-sm text-muted font-medium mb-4">
-                {item.metricLabel}
+
+              <div>
+                <p className="text-xs font-mono text-muted uppercase tracking-widest mb-3">
+                  {item.role}
+                </p>
+                <h3 className="font-display text-2xl sm:text-3xl text-foreground mb-4 leading-snug">
+                  {item.title}
+                </h3>
+                <p className="text-base text-foreground/80 leading-relaxed mb-5">
+                  {item.description}
+                </p>
+                <div className="flex flex-wrap gap-x-4 gap-y-2">
+                  {item.tags.map((tag) => (
+                    <span
+                      key={tag}
+                      className="text-xs text-muted tracking-wide"
+                    >
+                      {tag}
+                    </span>
+                  ))}
+                </div>
               </div>
-              <h3 className="text-lg font-semibold text-foreground mb-3">
-                {item.title}
-              </h3>
-              <p className="text-sm text-muted leading-relaxed mb-4">
-                {item.description}
-              </p>
-              <div className="flex flex-wrap gap-2">
-                {item.tags.map((tag) => (
-                  <span
-                    key={tag}
-                    className="px-3 py-1 text-xs font-medium rounded-full bg-white text-muted border border-border"
-                  >
-                    {tag}
-                  </span>
-                ))}
-              </div>
-            </motion.div>
+            </motion.article>
           ))}
         </div>
+
+        <p className="mt-14 text-sm text-muted italic max-w-2xl">
+          {/* TODO: once real client names are in content.ts, link each case study to a detailed page or the client site. */}
+          More case studies and client references available on request.
+        </p>
       </div>
     </section>
   );

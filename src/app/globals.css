@@ -1,18 +1,19 @@
 @import "tailwindcss";
 
 @theme inline {
-  --color-background: #ffffff;
-  --color-foreground: #18181b;
-  --color-muted: #71717a;
-  --color-border: #e4e4e7;
-  --color-accent: #7c3aed;
-  --color-accent-light: #ede9fe;
-  --color-accent-dark: #5b21b6;
-  --color-surface: #fafafa;
+  --color-background: #f7f5f0;
+  --color-foreground: #111111;
+  --color-muted: #6b6b6b;
+  --color-border: #e5e1d8;
+  --color-accent: #b4441c;
+  --color-accent-light: #f2e7df;
+  --color-accent-dark: #7a2d12;
+  --color-surface: #fdfbf6;
   --color-surface-elevated: #ffffff;
 
-  --font-sans: "Inter", system-ui, -apple-system, sans-serif;
-  --font-display: "Inter", system-ui, -apple-system, sans-serif;
+  --font-sans: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  --font-display: "Instrument Serif", "Cormorant Garamond", Georgia, "Times New Roman", serif;
+  --font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
 }
 
 html {
@@ -27,9 +28,19 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
+.font-display {
+  font-family: var(--font-display);
+  font-weight: 400;
+  letter-spacing: -0.01em;
+}
+
+.font-mono {
+  font-family: var(--font-mono);
+}
+
 ::selection {
-  background-color: var(--color-accent-light);
-  color: var(--color-accent-dark);
+  background-color: var(--color-foreground);
+  color: var(--color-background);
 }
 
 /* Custom scrollbar */
@@ -40,9 +51,9 @@ body {
   background: transparent;
 }
 ::-webkit-scrollbar-thumb {
-  background: #d4d4d8;
+  background: #d4d0c6;
   border-radius: 3px;
 }
 ::-webkit-scrollbar-thumb:hover {
-  background: #a1a1aa;
+  background: #a09d93;
 }

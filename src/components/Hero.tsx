@@ -7,107 +7,73 @@ const { hero } = siteContent;
 
 export default function Hero() {
   return (
-    <section className="relative min-h-screen flex items-center pt-20 pb-16 overflow-hidden">
-      {/* Subtle gradient background */}
-      <div className="absolute inset-0 bg-gradient-to-br from-accent-light/30 via-white to-white" />
-      <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-accent/5 rounded-full blur-3xl -translate-y-1/2 translate-x-1/3" />
-
-      <div className="relative max-w-6xl mx-auto px-4 sm:px-6 w-full">
-        <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+    <section className="relative pt-36 pb-20 sm:pt-44 sm:pb-28">
+      <div className="max-w-5xl mx-auto px-6 sm:px-8">
+        <div className="grid lg:grid-cols-[1.4fr_1fr] gap-12 lg:gap-20 items-start">
           {/* Text */}
           <motion.div
-            initial={{ opacity: 0, y: 30 }}
+            initial={{ opacity: 0, y: 24 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.7, ease: "easeOut" }}
-            className="order-2 lg:order-1"
+            transition={{ duration: 0.7 }}
           >
-            <motion.div
-              initial={{ opacity: 0, y: 10 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.2, duration: 0.5 }}
-              className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-accent-light text-accent-dark text-sm font-medium mb-6"
-            >
-              <span className="w-2 h-2 rounded-full bg-accent animate-pulse" />
-              {hero.subtitle}
-            </motion.div>
+            <p className="text-sm tracking-widest uppercase text-muted mb-6">
+              Hi, I&apos;m Milica — based in {hero.location}.
+            </p>
 
-            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight text-foreground leading-[1.1] mb-4">
-              {hero.name}
+            <h1 className="font-display text-5xl sm:text-6xl lg:text-7xl leading-[1.05] text-foreground mb-8">
+              {hero.title}
             </h1>
 
-            <p className="text-xl sm:text-2xl text-accent font-medium mb-6">
-              {hero.title}
+            <p className="text-lg sm:text-xl text-foreground/80 leading-relaxed max-w-xl mb-10">
+              {hero.intro}
             </p>
 
-            <p className="text-lg text-muted leading-relaxed max-w-lg mb-8">
-              {hero.description}
-            </p>
-
-            <div className="flex flex-col sm:flex-row gap-4">
+            <div className="flex flex-col sm:flex-row gap-3 sm:gap-6 sm:items-center">
               <a
                 href={hero.ctaPrimary.href}
-                className="inline-flex items-center justify-center px-8 py-3.5 text-base font-medium text-white bg-accent rounded-full hover:bg-accent-dark transition-all duration-200 shadow-lg shadow-accent/25 hover:shadow-accent/40 hover:-translate-y-0.5"
+                className="inline-flex items-center text-base font-medium text-foreground underline underline-offset-4 decoration-accent decoration-2 hover:text-accent transition-colors"
               >
                 {hero.ctaPrimary.label}
-                <svg
-                  className="ml-2 w-4 h-4"
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth={2}
-                    d="M17 8l4 4m0 0l-4 4m4-4H3"
-                  />
-                </svg>
+                <span className="ml-2">→</span>
               </a>
               <a
                 href={hero.ctaSecondary.href}
-                className="inline-flex items-center justify-center px-8 py-3.5 text-base font-medium text-foreground bg-white border border-border rounded-full hover:border-accent/30 hover:bg-accent-light/30 transition-all duration-200"
+                target="_blank"
+                rel="noreferrer"
+                className="inline-flex items-center text-base text-muted hover:text-foreground transition-colors"
               >
-                <svg
-                  className="mr-2 w-4 h-4"
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth={2}
-                    d="M12 10v6m0 0l-3-3m3 3l3-3M3 17V7a2 2 0 012-2h6l2 2h6a2 2 0 012 2v8a2 2 0 01-2 2H5a2 2 0 01-2-2z"
-                  />
-                </svg>
                 {hero.ctaSecondary.label}
+                <span className="ml-2">↗</span>
               </a>
             </div>
           </motion.div>
 
           {/* Profile image */}
           <motion.div
-            initial={{ opacity: 0, scale: 0.9 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.7, delay: 0.3, ease: "easeOut" }}
-            className="order-1 lg:order-2 flex justify-center"
+            initial={{ opacity: 0, y: 24 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.7, delay: 0.1 }}
+            className="lg:pt-4"
           >
-            <div className="relative">
-              <div className="w-64 h-64 sm:w-80 sm:h-80 lg:w-96 lg:h-96 rounded-full overflow-hidden border-4 border-white shadow-2xl shadow-accent/10">
-                {/* Replace /images/profile.jpg with your photo */}
-                <div className="w-full h-full bg-gradient-to-br from-accent-light to-accent/20 flex items-center justify-center">
-                  <svg
-                    className="w-24 h-24 text-accent/40"
-                    fill="currentColor"
-                    viewBox="0 0 24 24"
-                  >
-                    <path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z" />
-                  </svg>
-                </div>
+            <div className="relative aspect-[4/5] w-full max-w-sm mx-auto lg:ml-auto lg:mr-0 overflow-hidden rounded-sm bg-surface border border-border">
+              {/* TODO: add photo at public/images/profile.jpg */}
+              <div className="absolute inset-0 flex items-center justify-center text-muted">
+                <svg
+                  className="w-20 h-20 opacity-30"
+                  fill="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z" />
+                </svg>
               </div>
-              {/* Decorative ring */}
-              <div className="absolute inset-0 w-64 h-64 sm:w-80 sm:h-80 lg:w-96 lg:h-96 rounded-full border-2 border-accent/20 -translate-x-3 translate-y-3 -z-10" />
+              {/* When photo exists, swap the placeholder for:
+                  <img src={hero.profileImage} alt={hero.name} className="absolute inset-0 w-full h-full object-cover" />
+              */}
             </div>
+            <p className="text-xs text-muted mt-3 lg:text-right">
+              Portrait placeholder — add your photo at{" "}
+              <code className="font-mono">public/images/profile.jpg</code>
+            </p>
           </motion.div>
         </div>
       </div>

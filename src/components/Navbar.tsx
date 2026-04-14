@@ -18,26 +18,26 @@ export default function Navbar() {
 
   return (
     <motion.header
-      initial={{ y: -100 }}
-      animate={{ y: 0 }}
-      transition={{ duration: 0.6, ease: "easeOut" }}
+      initial={{ y: -60, opacity: 0 }}
+      animate={{ y: 0, opacity: 1 }}
+      transition={{ duration: 0.5 }}
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
         scrolled
-          ? "bg-white/90 backdrop-blur-md shadow-sm border-b border-border"
+          ? "bg-background/85 backdrop-blur-md border-b border-border"
           : "bg-transparent"
       }`}
     >
-      <div className="max-w-6xl mx-auto px-4 sm:px-6">
-        <div className="flex items-center justify-between h-16 sm:h-20">
+      <div className="max-w-5xl mx-auto px-6 sm:px-8">
+        <div className="flex items-center justify-between h-16">
           <a
             href="#"
-            className="text-lg font-semibold tracking-tight text-foreground"
+            className="font-display text-xl tracking-tight text-foreground"
           >
             {nav.logo}
           </a>
 
           {/* Desktop nav */}
-          <nav className="hidden md:flex items-center gap-8">
+          <nav className="hidden md:flex items-center gap-10">
             {nav.links.map((link) => (
               <a
                 key={link.href}
@@ -49,7 +49,7 @@ export default function Navbar() {
             ))}
             <a
               href={nav.ctaHref}
-              className="inline-flex items-center px-5 py-2.5 text-sm font-medium text-white bg-accent rounded-full hover:bg-accent-dark transition-colors duration-200"
+              className="text-sm text-foreground underline underline-offset-4 decoration-accent decoration-2 hover:text-accent transition-colors"
             >
               {nav.ctaLabel}
             </a>
@@ -94,15 +94,15 @@ export default function Navbar() {
             initial={{ opacity: 0, height: 0 }}
             animate={{ opacity: 1, height: "auto" }}
             exit={{ opacity: 0, height: 0 }}
-            className="md:hidden bg-white border-b border-border overflow-hidden"
+            className="md:hidden bg-background border-b border-border overflow-hidden"
           >
-            <nav className="flex flex-col px-4 py-4 gap-1">
+            <nav className="flex flex-col px-6 py-4 gap-1">
               {nav.links.map((link) => (
                 <a
                   key={link.href}
                   href={link.href}
                   onClick={() => setMobileOpen(false)}
-                  className="text-sm text-muted hover:text-foreground py-2.5 px-3 rounded-lg hover:bg-surface transition-colors"
+                  className="text-base text-foreground py-3 border-b border-border/60 last:border-0"
                 >
                   {link.label}
                 </a>
@@ -110,9 +110,9 @@ export default function Navbar() {
               <a
                 href={nav.ctaHref}
                 onClick={() => setMobileOpen(false)}
-                className="mt-2 inline-flex items-center justify-center px-5 py-2.5 text-sm font-medium text-white bg-accent rounded-full hover:bg-accent-dark transition-colors"
+                className="mt-2 text-base text-accent font-medium py-3"
               >
-                {nav.ctaLabel}
+                {nav.ctaLabel} →
               </a>
             </nav>
           </motion.div>

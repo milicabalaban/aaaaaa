@@ -1,15 +1,10 @@
 import Navbar from "@/components/Navbar";
 import Hero from "@/components/Hero";
+import Story from "@/components/Story";
 import About from "@/components/About";
-import Stats from "@/components/Stats";
-import Rankings from "@/components/Rankings";
-import ContentStyle from "@/components/ContentStyle";
 import Services from "@/components/Services";
-import Collaborations from "@/components/Collaborations";
 import CaseStudies from "@/components/CaseStudies";
-import Testimonials from "@/components/Testimonials";
-import MediaAppearances from "@/components/MediaAppearances";
-import RateCard from "@/components/RateCard";
+import Events from "@/components/Events";
 import Contact from "@/components/Contact";
 import Footer from "@/components/Footer";
 
@@ -19,16 +14,13 @@ export default function Home() {
       <Navbar />
       <main>
         <Hero />
+        <Story index={0} anchorId="story" />
         <About />
-        <Stats />
-        <Rankings />
-        <ContentStyle />
+        <Story index={1} />
         <Services />
-        <Collaborations />
         <CaseStudies />
-        <Testimonials />
-        <MediaAppearances />
-        <RateCard />
+        <Story index={2} />
+        <Events />
         <Contact />
       </main>
       <Footer />
